@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Afterimage</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  
+  
+	<img id="image" src="dog.png"></img>
+
+	
+	<style>
+	
+#image{
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  
+}
+
+#circle{
+  position: absolute;
+  left: 49%;
+  top: 52%;
+  width: 2vw;
+  height: 2vw;
+  background: red;
+  border-radius: 1vw;
+ 
+}
+
+body{
+  background: black;
+  overflow: hidden;
+}
+	
+	</style>
+	
+	<script>
+	
+	let total = 100000;
+let flash = 200;
+let count = flash + 10;
+
+
+setInterval(() => {
+
+  let time = count;
+
+  let image = document.getElementById("image");
+
+  if (time > flash) {
+
+    image.style.display = "none";
+
+  } else {
+
+    let disp = time % 1 == 0;
+
+    if (disp) {
+      image.style.display = "";
+    } else {
+      image.style.display = "none";
+    }
+
+  }
+
+
+  count++;
+
+}, 30)
+
+window.addEventListener("keypress", (event) => {
+
+  count = 0;
+
+});
+
+	
+	</script>
+  </body>
+</html>
